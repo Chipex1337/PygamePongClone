@@ -19,6 +19,7 @@ PlayerSpeed = 8
 
 #Other vars
 
+global roundStartTicks
 roundStartTicks = 0
 
 #Classes, here we throw some classes to have them all together in one place
@@ -95,23 +96,23 @@ def resetRound():
 
 def possibleCollision():
 	if Ball.x <= 50:
-		print("CHECK COLLISION 1")
+		#print("CHECK COLLISION 1")
 		checkCollision(Player1, Ball)
 		if Ball.x <= 0:
-			print("SCORE FOR 1")
-			Scores.AddScore(True)
+			#print("SCORE FOR 1")
+			Scores.AddScore(False)
 			resetRound()
 	elif Ball.x >= 700:
-		print("CHECK COLLISION 2")
+		#print("CHECK COLLISION 2")
 		checkCollision(Player2, Ball)
 		if Ball.x >= 750:
-			print("SCORE FOR 2")
-			Scores.AddScore(False)
+			#print("SCORE FOR 2")
+			Scores.AddScore(True)
 			resetRound()
 
 def checkCollision(Object, Projectile):
 	if Object.y <= Projectile.y + 50 and Object.y + 100 > Projectile.y:
-		print("REFLECTION")
+		#print("REFLECTION")
 		Projectile.xVel = Projectile.xVel*-1
 		Projectile.yVel = random.randint(-8, 8)
 
@@ -131,8 +132,6 @@ Scores = ScoreBoard(0, 0)
 
 while GameRunning:
 	#debug prints
-
-	print(roundStartTicks)
 
 	#this terribleness checks whether a key is held down, allowing for continuous movement
 
