@@ -82,6 +82,7 @@ def KickOffBall():
 #This function resets everything back to how it was at the start
 #TODO ROUNDSTARTICKS changes to 0, but when printed in the game loop shows previous value, wtf
 def resetRound():
+	global roundStartTicks
 	roundStartTicks = 0
 	Ball.x = 375
 	Ball.y = 275
